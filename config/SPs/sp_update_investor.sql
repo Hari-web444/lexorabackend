@@ -1,0 +1,82 @@
+DELIMITER $$
+-- DROP PROCEDURE IF EXISTS sp_update_investor;
+CREATE PROCEDURE sp_update_investor(
+    IN p_id INT,
+    IN p_full_name VARCHAR(255),
+    IN p_father_spouse_name VARCHAR(255),
+    IN p_date_of_birth DATE,
+    IN p_gender VARCHAR(20),
+    IN p_nationality VARCHAR(100),
+    IN p_residential_status VARCHAR(100),
+    IN p_occupation VARCHAR(100),
+    IN p_income_range VARCHAR(100),
+    IN p_mobile VARCHAR(20),
+    IN p_email VARCHAR(255),
+    IN p_perm_address TEXT,
+    IN p_curr_address TEXT,
+    IN p_city VARCHAR(100),
+    IN p_state VARCHAR(100),
+    IN p_pin VARCHAR(20),
+    IN p_pan VARCHAR(20),
+    IN p_aadhaar_last4 VARCHAR(4),
+    IN p_bank_account VARCHAR(50),
+    IN p_ifsc VARCHAR(20),
+    IN p_investment_purpose VARCHAR(255),
+    IN p_investment_horizon VARCHAR(255),
+    IN p_fund_source VARCHAR(255),
+    IN p_inv_amount DECIMAL(10,2),
+    IN p_payment_mode VARCHAR(100),
+    IN p_nom_name VARCHAR(255),
+    IN p_nom_relationship VARCHAR(100),
+    IN p_nom_dob DATE,
+    IN p_nom_phone VARCHAR(20),
+    IN p_nom_address TEXT,
+    IN p_status VARCHAR(50),
+    IN p_refered_by VARCHAR(50),
+    IN p_ref_status VARCHAR(50),
+    IN p_ref_reward VARCHAR(50),
+    IN p_inv_date DATE
+)
+BEGIN
+
+UPDATE investors
+SET
+    full_name = p_full_name,
+    father_spouse_name = p_father_spouse_name,
+    date_of_birth = p_date_of_birth,
+    gender = p_gender,
+    nationality = p_nationality,
+    residential_status = p_residential_status,
+    occupation = p_occupation,
+    income_range = p_income_range,
+    mobile = p_mobile,
+    email = p_email,
+    perm_address = p_perm_address,
+    curr_address = p_curr_address,
+    city = p_city,
+    state = p_state,
+    pin = p_pin,
+    pan = p_pan,
+    aadhaar_last4 = p_aadhaar_last4,
+    bank_account = p_bank_account,
+    ifsc = p_ifsc,
+    investment_purpose = p_investment_purpose,
+    investment_horizon = p_investment_horizon,
+    fund_source = p_fund_source,
+    total_invesment = p_inv_amount,
+    payment_mode = p_payment_mode,
+    nom_name = p_nom_name,
+    nom_relationship = p_nom_relationship,
+    nom_dob = p_nom_dob,
+    nom_phone = p_nom_phone,
+    nom_address = p_nom_address,
+    status = p_status,
+    refered_by = p_refered_by,
+    ref_status = p_ref_status,
+    ref_reward = p_ref_reward,
+    invesment_date = p_inv_date
+WHERE id = p_id;
+
+END$$
+
+DELIMITER ;
